@@ -1,0 +1,404 @@
+.courses-container {
+    --red: #601715;
+    --blue: #164e5e;
+    --green: #185b42;
+
+    --main-text: 0.8em;
+    --headline-text: 1em;
+    --button-text: 1.4em;
+    --title-text: 1.6em;
+
+
+    --card-height: 400px;
+    --card-width: 240px;
+    --card-head-height: 46px;
+    --badge-width: 90px;
+    /* This shouldn't be adjusted as it keeps the bard body pinned to the bottom of the card header no matter the badge-width.*/
+    --badge-offset: calc(-1 * calc(var(--badge-width) * 0.75));
+    --card-margin-top: calc(calc(-1 * var(--badge-offset)) / 1.6);
+}
+
+/* @media (min-width: 500px) {
+    .courses-container {
+        --card-width: 280px;
+        --card-height: 400px;
+        --badge-width: 90px;
+    }
+} */
+
+/* @media (min-width: 680px) {
+    .courses-container {
+        --card-width: 300px;
+        --card-height: 400px;
+        --badge-width: 90px;
+    }
+}
+
+@media (min-width: 978px) {
+    .courses-container {
+        --card-width: 300px;
+        --badge-width: 90px;
+    }
+} */
+
+body {
+    background-color: #f7f2e8;
+    min-height: 700px;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    max-width: 100vw;
+    min-width: fit-content;
+    margin: 0;
+}
+
+@media (min-width: 600px) {
+    body {
+        padding: 2rem;
+    }
+}
+
+.page-container {
+    background-color: white;
+    min-width: fit-content;
+    padding: 0;
+}
+
+@media (min-width: 600px) {
+    .page-container {
+        background-color: white;
+        min-width: fit-content;
+        padding: 1rem;
+    }
+}
+
+/* ----------------------------------------------------------------
+    Base Classes
+-------------------------------------------------------------------*/
+
+.red {
+    color: var(--red);
+}
+
+.bgrd-red {
+    background-color: var(--red);
+}
+
+.blue {
+    color: var(--blue);
+}
+
+.bgrd-blue {
+    background-color: var(--blue);
+}
+
+.green {
+    color: var(--green);
+}
+
+.bgrd-green {
+    background-color: var(--green);
+}
+
+.bgrd-white {
+    background-color: white;
+}
+
+.font-light {
+    font-weight: 300;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.center-vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.center-horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+/* ----------------------------------------------------------------
+    Element Styles
+-------------------------------------------------------------------*/
+/* .courses-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+} */
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 500px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px; 
+    }
+}
+
+@media (min-width: 780px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 20px; 
+    }
+}
+
+@media (min-width: 1300px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;    
+    }
+}
+
+@media (min-width: 1443px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;    
+    }
+}
+
+@media (min-width: 1843px) {
+    .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;    
+    }
+}
+
+
+/* ----------------------------------------------------------------
+    Course Card
+-------------------------------------------------------------------*/
+
+.course-card {
+    min-width: var(--card-width);
+    height: var(--card-height);
+    box-shadow: -3px 2px 6px #e1e0e0, 3px 2px 6px #e1e0e0 ;
+    margin-top: var(--card-margin-top);
+}
+
+.course-card__header {
+    width: 100%;
+    height: var(--card-head-height);
+    vertical-align: middle;
+}
+
+.course-card__header-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.course_card__header-text {
+    color: white;
+    font-size: var(--main-text);
+    vertical-align: middle;
+}
+
+.badge-placeholder {
+    background-color: black;
+    width: var(--badge-width);
+    height: var(--badge-width);
+    border-radius: 50%;
+    position: relative;
+    left: calc(calc(100% - var(--badge-width)) / 2);
+    top: calc(var(--badge-offset) - 10px);
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
+
+.badge-container {
+    width: var(--badge-width);
+    max-height: var(--badge-width);
+    /* border-radius: 50%; */
+    position: relative;
+    left: calc(calc(100% - var(--badge-width)) / 2);
+    top: calc(var(--badge-offset) - 10px);
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+}
+
+.badge {
+    width: var(--badge-width);
+    height: var(--badge-width);
+}
+
+.card-body {
+    /* background-color: rgb(255, 240, 240); */
+    width: 100%;
+    position: relative;
+    top: calc(var(--badge-offset) - calc(var(--badge-width) / 4));
+    height: calc(var(--card-height) - var(--card-head-height));
+    overflow: hidden;
+}
+
+.card-body__contents {
+    /* background-color: rgb(238, 238, 238); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    padding: 12px;
+    height: calc(calc(calc(var(--card-height) - var(--card-margin-top)) - var(--card-head-height)) + 12px);
+}
+
+.course-title {
+    color: black;
+    font-size: var(--title-text);
+    line-height: 0.5em;
+    margin: 12px 0 5px 0;
+}
+
+.course-description {
+    font-size: var(--main-text);
+    min-height: 30%;
+    max-height: 80px;
+    overflow: hidden;
+}
+
+.learn-how-to {
+    font-size: 0.9em;
+    margin: 0 0 16px 0;
+}
+
+ul.course-objectives {
+    display: block;
+    margin-top: 0;
+}
+
+.list-height {
+    max-height: 98px;
+    overflow: hidden;
+}
+
+.course-objective {
+    font-size: var(--main-text);
+    min-height: 32px;
+}
+
+.course-button {
+    border-radius: calc(var(--card-width) / 10);
+    color: white;
+    width: calc(var(--card-width) * 0.6);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: var(--button-text);
+    font-weight: 300;
+}
+
+.border-red {
+    border: 2px var(--red) solid;
+}
+
+.border-blue {
+    border: 2px var(--blue) solid;
+}
+
+.border-green {
+    border: 2px var(--green) solid;
+}
+
+.border-white {
+    border: 2px white solid;
+}
+
+.hover-red:hover {
+    color: var(--red);
+    background-color: white;
+    border: 2px var(--red) solid;
+}
+
+.hover-blue:hover {
+    color: var(--blue);
+    background-color: white;
+    border: 2px var(--blue) solid;
+}
+
+.hover-green:hover {
+    color: var(--green);
+    background-color: white;
+    border: 2px var(--green) solid;
+}
+
+ul.course-objectives.fa-ul {
+    margin-left: 1.6em;
+}
+
+.course-pin-bottom {
+    position: relative;
+    bottom: 0px;
+}
+
+/* ----------------------------------------------------------------
+    Add Card Styles
+-------------------------------------------------------------------*/
+
+.add-card {
+    min-width: var(--card-width);
+    height: var(--card-height);
+    margin-top: var(--card-margin-top);
+    box-shadow: -3px 2px 6px #e1e0e0, 3px 2px 6px #e1e0e0 ;
+}
+
+.add-card-contents {
+    padding: 12px;
+    min-height: calc(var(--card-height) - var(--card-margin-top) + 10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.add-headline {
+    color: white;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.add-subheadline {
+    color: white;
+    font-size: 2em;
+    overflow: hidden;
+    margin-top: 30px;
+}
+
+.add-button {
+    border-radius: calc(var(--card-width) / 10);
+    width: calc(var(--card-width) * 0.6);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: var(--button-text);
+    
+    font-weight: 300;
+}
+
+.add-pin-bottom {
+    position: relative;
+    bottom:0px;
+}
+
+.add-hover-blue:hover {
+    background-color: var(--blue);
+    color: white;
+    border: 2px white solid;
+}
